@@ -1,18 +1,19 @@
 const path = require('path');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './src/game.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'game.js'
+    filename: 'main.js'
   },
   plugins: [
-    // new CleanWebpackPlugin([
-    //   'dist'
-    // ]),
+    new webpack.DefinePlugin({
+      'typeof CANVAS_RENDERER': JSON.stringify(true),
+      'typeof WEBGL_RENDERER': JSON.stringify(true),
+    }),
     new HtmlWebpackPlugin()
   ],
   module: {
