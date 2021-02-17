@@ -1,10 +1,14 @@
 import Phaser from 'phaser';
+import IntroScene from './scenes/introScene';
+import GameScene from './scenes/gameScene';
+import GameOverScene from './scenes/gameOverScene';
+import LeaderBoardScene from './scenes/leaderboardScene';
 
 const config = {
   type: Phaser.AUTO,
   width: 800,
   height: 600,
-  scene: [],
+  scene: [introScene, gameScene, gameOverScene, leaderboardScene],
   physics: {
     default: 'arcade',
     arcade: {
