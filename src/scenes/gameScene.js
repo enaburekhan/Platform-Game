@@ -8,7 +8,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   init() {
-    // this.score = 0;
+    this.score = 0;
   }
 
   preload ()
@@ -16,7 +16,7 @@ export default class GameScene extends Phaser.Scene {
       this.load.image('sky', 'assets/sky.png');
       this.load.image('ground', 'assets/platform.png');
       this.load.image('star', 'assets/star.png');
-      this.load.image('mountain', 'assets/mountain.png');
+      this.load.image('mountains', 'assets/mountain.png');
       this.load.spritesheet('dude', 
           'assets/dude.png',
           { frameWidth: 32, frameHeight: 48 }
@@ -25,16 +25,16 @@ export default class GameScene extends Phaser.Scene {
 
   create() {
     this.add.image(400, 300, 'sky').setScrollFactor(0, 1);
-    this.coins = this.physics.add.group({ classType: Star });
+    this.stars = this.physics.add.group({ classType: Star });
     this.mountain = this.physics.add.group({ classType: Mountain });
     // platforms
     this.platforms = this.physics.add.staticGroup();
     this.platforms.create(100, this.scale.height + 150, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(400, this.scale.height, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(800, this.scale.height - 150, 'ground').setScale(0.5).refreshBody();
-    // setup coins and mountain initially
+    // setup stars and mountain initially
     this.platforms.children.iterate(platform => {
-      this.addCoinAbove(platform);
+      this.addStarAbove(platform);
       this.addMountainAbove(platform);
     });
     // logic for player movement
@@ -57,12 +57,12 @@ export default class GameScene extends Phaser.Scene {
     });
     // physics interactions
     this.physics.add.collider(this.player, this.platforms);
-    this.physics.add.collider(this.platforms, this.coins);
+    this.physics.add.collider(this.platforms, this.stars);
     this.physics.add.collider(this.platforms, this.mountain);
     this.physics.add.overlap(
       this.player,
-      this.coins,
-      this.collectCoin,
+      this.stars,
+      this.collectStar,
       undefined,
       this,
     );
@@ -84,13 +84,13 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    // reuse platforms
+    // recycle platforms
     this.platforms.children.iterate(platform => {
       const { scrollX } = this.cameras.main;
       if (platform.x <= scrollX - 100) {
         platform.x = scrollX + 900;
         platform.refreshBody();
-        this.addCoinAbove(platform);
+        this.addStarAbove(platform);
         this.addMountainAbove(platform);
       }
     });
@@ -118,36 +118,36 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
-  // add a coin above a platform
-  addCoinAbove(sprite) {
+  // add a star above a platform
+  addStarAbove(sprite) {
     const y = sprite.y - sprite.displayHeight;
-    const coin = this.coins.get(Phaser.Math.Between(sprite.x - 60, sprite.x), y, 'star');
-    coin.setActive(true);
-    coin.setVisible(true);
-    this.add.existing(coin);
-    coin.body.setSize(coin.width, coin.height);
-    this.physics.world.enable(coin);
-    return coin;
+    const star = this.stars.get(Phaser.Math.Between(sprite.x - 60, sprite.x), y, 'star');
+    star.setActive(true);
+    star.setVisible(true);
+    this.add.existing(star);
+    star.body.setSize(star.width, star.height);
+    this.physics.world.enable(star);
+    return star;
   }
 
-  // collect coin and increase score
-  collectCoin(_player, coin) {
-    this.coins.killAndHide(coin);
-    this.physics.world.disableBody(coin.body);
+  // collect star and increase score
+  collectStar(_player, star) {
+    this.stars.killAndHide(star);
+    this.physics.world.disableBody(star.body);
     this.score += 10;
     this.scoreText.text = `Score: ${this.score}`;
   }
 
-  // add a coin above a platform
-  addSpikesAbove(sprite) {
+  // add a mountain above a platform
+  addMountainAbove(sprite) {
     const y = sprite.y - sprite.displayHeight;
-    const spike = this.spikes.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'spikes');
-    spike.setActive(true);
-    spike.setVisible(true);
-    this.add.existing(spike);
-    spike.body.setSize(spike.width, spike.height);
-    this.physics.world.enable(spike);
-    return spike;
+    const mountain = this.mountains.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'mountains');
+    mountain.setActive(true);
+    mountain.setVisible(true);
+    this.add.existing(mountain);
+    mountain.body.setSize(mountain.width, mountain.height);
+    this.physics.world.enable(mountain);
+    return mountain;
   }
 
   
