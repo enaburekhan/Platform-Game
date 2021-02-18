@@ -14,8 +14,8 @@ export default class IntroScene extends Phaser.Scene {
   create() {
     // logo
     this.add.image(50, 80, 'logo').setScale(0.5);
-    // title
-    this.add.text(this.scale.width * 0.5, 80, 'Panda Runner', { fontSize: 70, color: '#1babab' }).setOrigin();
+    // intro
+    this.add.text(this.scale.width * 0.5, 80, 'Platform Game', { fontSize: 70, color: '#1babab' }).setOrigin();
     // start button
     const startButton = this.add.image(this.scale.width * 0.5, this.scale.height * 0.5, 'start').setScale(0.6);
     startButton.setInteractive({ useHandCursor: true });
@@ -29,6 +29,6 @@ export default class IntroScene extends Phaser.Scene {
       this.scene.start('leaderboard');
     });
     // credits
-    this.add.text(this.scale.width * 0.5, this.scale.height - 100, 'Created by: Meron Ogbai', { fontSize: 24, color: '#1babab' });
+    this.add.text(this.scale.width * 0.5, this.scale.height - 100, 'Created by: Eric Enaburekhan', { fontSize: 24, color: '#1babab' });
   }
 }
