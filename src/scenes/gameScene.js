@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Star from '../lib/stars';
-import Mountain from '../lib/mountain';
+import StaticKiller from '../lib/staticKiller';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -16,27 +16,27 @@ export default class GameScene extends Phaser.Scene {
       this.load.image('sky', 'assets/sky.png');
       this.load.image('ground', 'assets/platform.png');
       this.load.image('star', 'assets/star.png');
-      this.load.audio('jump', 'assets/sfx/Preview.ogg');
-      this.load.image('mountains', 'assets/mountain.png');
+      this.load.image('staticKiller', 'assets/static_killer.png');
       this.load.spritesheet('dude', 
           'assets/dude.png',
           { frameWidth: 32, frameHeight: 48 }
       );
+      this.load.audio('jump', 'assets/sfx/Preview.ogg');
   }
 
   create() {
     this.add.image(400, 300, 'sky').setScrollFactor(0, 1);
     this.stars = this.physics.add.group({ classType: Star });
-    this.mountain = this.physics.add.group({ classType: Mountain });
+    this.staticKillers = this.physics.add.group({ classType: StaticKiller });
     // platforms
     this.platforms = this.physics.add.staticGroup();
     this.platforms.create(100, this.scale.height + 150, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(400, this.scale.height, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(800, this.scale.height - 150, 'ground').setScale(0.5).refreshBody();
-    // setup stars and mountain initially
+    // setup stars and staticKiller initially
     this.platforms.children.iterate(platform => {
       this.addStarAbove(platform);
-      this.addMountainAbove(platform);
+      this.addStaticKillerAbove(platform);
     });
     // logic for player movement
     this.player = this.physics.add.sprite(100, 450, 'dude');
@@ -60,7 +60,7 @@ export default class GameScene extends Phaser.Scene {
     // physics interactions
     this.physics.add.collider(this.player, this.platforms);
     this.physics.add.collider(this.platforms, this.stars);
-    this.physics.add.collider(this.platforms, this.mountain);
+    this.physics.add.collider(this.platforms, this.staticKillers);
     this.physics.add.overlap(
       this.player,
       this.stars,
@@ -69,7 +69,7 @@ export default class GameScene extends Phaser.Scene {
       this,
     );
     this.physics.add.overlap(this.player,
-      this.mountain,
+      this.mountains,
       () => {
         this.scene.start('game-over', { score: this.score });
       },
@@ -93,10 +93,10 @@ export default class GameScene extends Phaser.Scene {
         platform.x = scrollX + 900;
         platform.refreshBody();
         this.addStarAbove(platform);
-        this.addMountainAbove(platform);
+        this.addStaticKillerAbove(platform);
       }
     });
-    // player motion and animations
+    // player control using keyboard
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160);
 
@@ -112,7 +112,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     if (this.cursors.up.isDown && this.player.body.touching.down) {
-      this.player.setVelocityY(-350);
+      this.player.setVelocityY(-330);
     }
 
     if (this.player.y >= 800) {
@@ -140,16 +140,16 @@ export default class GameScene extends Phaser.Scene {
     this.scoreText.text = `Score: ${this.score}`;
   }
 
-  // add a mountain above a platform
-  addMountainAbove(sprite) {
+  // add a staticKiller above a platform
+  addStaticKillerAbove(sprite) {
     const y = sprite.y - sprite.displayHeight;
-    const mountain = this.mountain.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'mountains');
-    mountain.setActive(true);
-    mountain.setVisible(true);
-    this.add.existing(mountain);
-    mountain.body.setSize(mountain.width, mountain.height);
-    this.physics.world.enable(mountain);
-    return mountain;
+    const staticKiller = this.staticKillers.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'staticKiller');
+    staticKiller.setActive(true);
+    staticKiller.setVisible(true);
+    this.add.existing(staticKiller);
+    staticKiller.body.setSize(staticKiller.width, staticKiller.height);
+    this.physics.world.enable(staticKiller);
+    return staticKiller;
   }
 
   
