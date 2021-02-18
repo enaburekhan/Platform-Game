@@ -8,7 +8,6 @@ const config = {
   type: Phaser.AUTO,
   width: 800,
   height: 600,
-  scene: [introScene, gameScene, gameOverScene, leaderboardScene],
   physics: {
     default: 'arcade',
     arcade: {
@@ -17,7 +16,21 @@ const config = {
       },
       debug: true    
     }    
-  }     
+  },
+  
+  scene: [
+          IntroScene,
+          GameScene, 
+          GameOverScene, 
+          LeaderBoardScene
+        ],
+  
+  parent: '#container',
+  dom: {
+    createContainer: true,
+  },
+  
+  autoCenter: true,
 }
 
 

@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Stars from '../lib/stars';
+import Star from '../lib/stars';
 import Mountain from '../lib/mountain';
 
 export default class GameScene extends Phaser.Scene {
