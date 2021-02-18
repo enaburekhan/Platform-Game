@@ -16,6 +16,7 @@ export default class GameScene extends Phaser.Scene {
       this.load.image('sky', 'assets/sky.png');
       this.load.image('ground', 'assets/platform.png');
       this.load.image('star', 'assets/star.png');
+      this.load.audio('jump', 'assets/sfx/Preview.ogg');
       this.load.image('mountains', 'assets/mountain.png');
       this.load.spritesheet('dude', 
           'assets/dude.png',
@@ -141,7 +142,7 @@ export default class GameScene extends Phaser.Scene {
   // add a mountain above a platform
   addMountainAbove(sprite) {
     const y = sprite.y - sprite.displayHeight;
-    const mountain = this.mountains.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'mountains');
+    const mountain = this.mountain.get(Phaser.Math.Between(sprite.x + 10, sprite.x + 60), y, 'mountains');
     mountain.setActive(true);
     mountain.setVisible(true);
     this.add.existing(mountain);
