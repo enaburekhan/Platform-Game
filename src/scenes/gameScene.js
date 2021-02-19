@@ -69,7 +69,7 @@ export default class GameScene extends Phaser.Scene {
       this,
     );
     this.physics.add.overlap(this.player,
-      this.mountains,
+      this.staticKillers,
       () => {
         this.scene.start('game-over', { score: this.score });
       },

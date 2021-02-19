@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -14,7 +13,6 @@ module.exports = {
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true),
     }),
-    new HtmlWebpackPlugin()
   ],
   module: {
     rules: [{
