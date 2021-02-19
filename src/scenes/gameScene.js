@@ -21,7 +21,6 @@ export default class GameScene extends Phaser.Scene {
           'assets/dude.png',
           { frameWidth: 32, frameHeight: 48 }
       );
-      this.load.audio('jump', 'assets/sfx/Preview.ogg');
   }
 
   create() {
