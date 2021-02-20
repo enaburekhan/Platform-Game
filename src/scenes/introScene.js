@@ -6,9 +6,9 @@ export default class IntroScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('start', 'assets/start.png');
+    this.load.image('start', 'assets/play.png');
     this.load.image('logo', 'assets/dude_face.png');
-    this.load.image('leaderboard', 'assets/leaderboard.png');
+    this.load.image('leaderboard', 'assets/live-score.png');
   }
 
   create() {
@@ -29,6 +29,6 @@ export default class IntroScene extends Phaser.Scene {
       this.scene.start('leaderboard');
     });
     // credits
-    this.add.text(this.scale.width * 0.5, this.scale.height - 100, 'Created by: Eric Enaburekhan', { fontSize: 24, color: '#1babab' });
+    this.add.text(this.scale.width * 0.3, this.scale.height - 100, 'Created by: Eric Enaburekhan', { fontSize: 22, color: '#1babab' });
   }
 }
