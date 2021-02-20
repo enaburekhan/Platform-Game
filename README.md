@@ -14,7 +14,7 @@
 
 ### Controls
 
-You need a keyboard to control the panda.
+You need a keyboard to control the dude.
 
 - Press ⬆️ to jump.
 - Press ➡️ to go right.
