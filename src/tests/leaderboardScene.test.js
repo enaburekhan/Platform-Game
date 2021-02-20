@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import LeaderBoardScene from '../scenes/leaderBoardScene';
+import LeaderBoardScene from '../scenes/leaderboardScene';
 
 test('leaderboard scene is a function', () => {
   expect(typeof LeaderBoardScene).toBe('function');
