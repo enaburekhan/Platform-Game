@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "test": "jest src/tests",
-    "dev": "webpack-dev-server",
     "build": "webpack",
     "start": "webpack serve --mode=development dist --open"
   },
