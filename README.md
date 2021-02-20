@@ -38,7 +38,7 @@ You need a keyboard to control the dude.
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](http://ericenaburekhan.me/Platform-Game/)
 
 ## Getting Started
 
