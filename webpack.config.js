@@ -1,5 +1,7 @@
 const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
+/* eslint-enable import/no-extraneous-dependencies */
 
 module.exports = {
   mode: 'production',
@@ -23,7 +25,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, 'dist'),
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -31,5 +33,5 @@ module.exports = {
       'typeof WEBGL_RENDERER': JSON.stringify(true),
     }),
   ],
-  
+
 };

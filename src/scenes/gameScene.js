@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Phaser from 'phaser';
+/* eslint-enable import/no-extraneous-dependencies */
 import Star from '../lib/stars';
 import StaticKiller from '../lib/staticKiller';
 
@@ -11,16 +13,14 @@ export default class GameScene extends Phaser.Scene {
     this.score = 0;
   }
 
-  preload ()
-  {
-      this.load.image('sky', 'assets/sky.png');
-      this.load.image('ground', 'assets/platform.png');
-      this.load.image('star', 'assets/star.png');
-      this.load.image('staticKiller', 'assets/static_killer.png');
-      this.load.spritesheet('dude', 
-          'assets/dude.png',
-          { frameWidth: 32, frameHeight: 48 }
-      );
+  preload() {
+    this.load.image('sky', 'assets/sky.png');
+    this.load.image('ground', 'assets/platform.png');
+    this.load.image('star', 'assets/star.png');
+    this.load.image('staticKiller', 'assets/static_killer.png');
+    this.load.spritesheet('dude',
+      'assets/dude.png',
+      { frameWidth: 32, frameHeight: 48 });
   }
 
   create() {
@@ -54,7 +54,7 @@ export default class GameScene extends Phaser.Scene {
     this.anims.create({
       key: 'turn',
       frames: [{ key: 'dude', frame: 4 }],
-      frameRate: 20
+      frameRate: 20,
     });
     // physics interactions
     this.physics.add.collider(this.player, this.platforms);
@@ -150,6 +150,4 @@ export default class GameScene extends Phaser.Scene {
     this.physics.world.enable(staticKiller);
     return staticKiller;
   }
-
-  
 }

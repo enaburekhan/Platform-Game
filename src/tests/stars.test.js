@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Phaser from 'phaser';
+/* eslint-enable import/no-extraneous-dependencies */
 import Star from '../lib/stars';
 
 test('Star is a function', () => {

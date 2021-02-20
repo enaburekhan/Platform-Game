@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Phaser from 'phaser';
+/* eslint-enable import/no-extraneous-dependencies */
 
 export default class IntroScene extends Phaser.Scene {
   constructor() {
