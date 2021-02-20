@@ -6,7 +6,24 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'main.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src/'),
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist')
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -14,18 +31,5 @@ module.exports = {
       'typeof WEBGL_RENDERER': JSON.stringify(true),
     }),
   ],
-  module: {
-    rules: [{
-      test: /\.(png|jpg|gif)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          outputPath: 'assets'
-        }
-      }
-    }]
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist')
-  }
-}
+  
+};

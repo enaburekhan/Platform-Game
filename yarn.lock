@@ -6446,10 +6446,10 @@
     "source-list-map" "^2.0.1"
     "source-map" "^0.6.1"
 
-"webpack@*", "webpack@^4.0.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.20.0", "webpack@^5.22.0", "webpack@>=2", "webpack@4.x.x || 5.x.x":
-  "integrity" "sha512-xqlb6r9RUXda/d9iA6P7YRTP1ChWeP50TEESKMMNIg0u8/Rb66zN9YJJO7oYgJTRyFyYi43NVC5feG45FSO1vQ=="
-  "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.22.0.tgz"
-  "version" "5.22.0"
+"webpack@*", "webpack@^4.0.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.20.0", "webpack@^5.23.0", "webpack@>=2", "webpack@4.x.x || 5.x.x":
+  "integrity" "sha512-RC6dwDuRxiU75F8XC4H08NtzUrMfufw5LDnO8dTtaKU2+fszEdySCgZhNwSBBn516iNaJbQI7T7OPHIgCwcJmg=="
+  "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.23.0.tgz"
+  "version" "5.23.0"
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"
