@@ -2,7 +2,7 @@
 
 > This game involves a dude always on the run while picking stars and jumping across obstacles. If he eventually collide with the obstacles which I called staticKiller. Dude is dead and game ends. And when he falls off the platform, dude also dies and game ends.
 
-![loom-video](https://www.loom.com/share/4a2bd0a2e6b24dc3be14231418725d1c)
+[loom-video](https://www.loom.com/share/4a2bd0a2e6b24dc3be14231418725d1c)
 
 ## Game Design
 
