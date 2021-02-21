@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import Phaser from 'phaser';
-/* eslint-enable import/no-extraneous-dependencies */
+import Phaser from '../lib/phaser';
 import { url, postScores } from '../lib/leaderboardApi';
 
 export default class GameOverScene extends Phaser.Scene {

@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import Phaser from 'phaser';
-/* eslint-enable import/no-extraneous-dependencies */
+import Phaser from '../lib/phaser';
 import GameOverScene from '../scenes/gameOverScene';
 
 test('game over scene is a function', () => {
