@@ -1,0 +1,49 @@
+{
+  "name": "Platform-Game",
+  "version": "1.0.0",
+  "description": "Platform Game built with vanilla javascript, Phaser 3 and webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest src/tests",
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --mode=development dist --open"
+  },
+  "jest": {
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enaburekhan/Platform-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enaburekhan/Platform-Game/issues"
+  },
+  "homepage": "https://github.com/enaburekhan/Platform-Game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.1.0",
+    "jest": "^26.6.3",
+    "jest-canvas-mock": "^2.3.1",
+    "phaser": "^3.52.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "node-modules": "^0.0.1",
+    "phaser": "^3.52.0"
+  }
+}
