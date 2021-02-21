@@ -22,7 +22,6 @@ test('fetch gets called only once', () => {
   expect(fetch).toHaveBeenCalledTimes(1);
 });
 
-
 test('postScores does not call another url', () => {
   postScores(url);
   expect(fetch).not.toHaveBeenCalledWith('https://google.com');

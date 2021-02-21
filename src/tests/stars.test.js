@@ -9,7 +9,6 @@ test('Star is a subclass of sprite', () => {
   expect(Star.prototype instanceof Phaser.Physics.Arcade.Sprite).toBe(true);
 });
 
-
 test('Star has a constructor', () => {
   expect(Star.prototype.constructor).not.toBe(false);
 });

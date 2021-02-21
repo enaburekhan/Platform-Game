@@ -1,11 +1,11 @@
 const path = require('path');
-/* eslint-disable import/no-extraneous-dependencies */
+
 const webpack = require('webpack');
-/* eslint-enable import/no-extraneous-dependencies */
 
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
@@ -25,7 +25,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new webpack.DefinePlugin({

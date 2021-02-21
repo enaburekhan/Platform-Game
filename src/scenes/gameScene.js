@@ -1,4 +1,3 @@
-
 import Phaser from '../lib/phaser';
 
 import Star from '../lib/stars';

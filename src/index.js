@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Phaser from 'phaser';
-/* eslint-enable import/no-extraneous-dependencies */
 import IntroScene from './scenes/introScene';
 import GameScene from './scenes/gameScene';
 import GameOverScene from './scenes/gameOverScene';
@@ -33,6 +31,5 @@ const config = {
 
   autoCenter: true,
 };
-
 
 export default new Phaser.Game(config);
