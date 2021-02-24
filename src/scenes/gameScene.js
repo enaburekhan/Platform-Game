@@ -31,7 +31,7 @@ export default class GameScene extends Phaser.Scene {
     this.platforms.create(100, this.scale.height + 150, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(400, this.scale.height, 'ground').setScale(0.5).refreshBody();
     this.platforms.create(800, this.scale.height - 150, 'ground').setScale(0.5).refreshBody();
-    // setup stars and staticKiller initially
+    // setup stars and staticKiller
     this.platforms.children.iterate(platform => {
       this.addStarAbove(platform);
       this.addStaticKillerAbove(platform);
